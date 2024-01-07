@@ -1,17 +1,17 @@
 const toggleSwitch1 = document.getElementById("toggleSwitch1");
 const toggleText1 = document.getElementById("toggleText1");
-const ledON1 = document.getElementById("led_on1");
-const ledOFF1 = document.getElementById("led_off1");
+const led1ON = document.getElementById("led1_on");
+const led1OFF = document.getElementById("led1_off");
 
 const toggleSwitch2 = document.getElementById("toggleSwitch2");
 const toggleText2 = document.getElementById("toggleText2");
-const ledON2 = document.getElementById("led_on2");
-const ledOFF2 = document.getElementById("led_off2");
+const led2ON = document.getElementById("led2_on");
+const led2OFF = document.getElementById("led2_off");
 
 const toggleSwitch3 = document.getElementById("toggleSwitch3");
 const toggleText3 = document.getElementById("toggleText3");
-const ledON3 = document.getElementById("led_on3");
-const ledOFF3 = document.getElementById("led_off3");
+const led3ON = document.getElementById("led3_on");
+const led3OFF = document.getElementById("led3_off");
 
 function generateRandomNumber(length) {
   return Math.floor(
@@ -43,10 +43,10 @@ function onMessageArrived(message) {
   let data = JSON.parse(message.payloadString);
   if (control) {
     toggleSwitch.checked = false;
-    lamp_off();
+    led_off();
   } else if (control) {
     toggleSwitch.checked = true;
-    lamp_on();
+    led_on();
   }
   console.log(data);
 }
@@ -72,15 +72,15 @@ function led_off(toggleSwitch, ledON, ledOFF, toggleText) {
 }
 
 toggleSwitch1.addEventListener("change", function () {
-  led_on(toggleSwitch1, led_on1, led_0ff1, toggleText1);
+  led_on(toggleSwitch1, led1_on, led2_0ff, toggleText1);
 });
 
 toggleSwitch2.addEventListener("change", function () {
- led_on(toggleSwitch2, led_on2, led_off2, toggleText2);
+ led_on(toggleSwitch2, led2_on, led2_off, toggleText2);
 });
 
 toggleSwitch3.addEventListener("change", function () {
-  led_on(toggleSwitch3, led_on3, led_off3, toggleText3);
+  led_on(toggleSwitch3, led3_on, led3_off, toggleText3);
 });
 
 const toggleAuto = document.getElementById("toggleAuto");
