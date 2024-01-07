@@ -1,17 +1,17 @@
 const toggleSwitch1 = document.getElementById("toggleSwitch1");
 const toggleText1 = document.getElementById("toggleText1");
-const led1ON = document.getElementById("led1_on");
-const led1OFF = document.getElementById("led1_off");
+const led1_on = document.getElementById("led1_on");
+const led1_off = document.getElementById("led1_off");
 
 const toggleSwitch2 = document.getElementById("toggleSwitch2");
 const toggleText2 = document.getElementById("toggleText2");
-const led2ON = document.getElementById("led2_on");
-const led2OFF = document.getElementById("led2_off");
+const led2_on = document.getElementById("led2_on");
+const led2_off= document.getElementById("led2_off");
 
 const toggleSwitch3 = document.getElementById("toggleSwitch3");
 const toggleText3 = document.getElementById("toggleText3");
-const led3ON = document.getElementById("led3_on");
-const led3OFF = document.getElementById("led3_off");
+const led3_on = document.getElementById("led3_on");
+const led3_off = document.getElementById("led3_off");
 
 function generateRandomNumber(length) {
   return Math.floor(
@@ -39,19 +39,19 @@ function onConnectionLost(responseObject) {
 }
 
 function onMessageArrived(message) {
-    console.log("onMessageArrived:" + message.payloadString);
-    let data = JSON.parse(message.payloadString);
-    if (control) {
-      toggleSwitch1.checked = false;
-      led_off(toggleSwitch1, led1ON, led1OFF, toggleText1);
-    } else {
-      toggleSwitch1.checked = true;
-      led_on(toggleSwitch1, led1ON, led1OFF, toggleText1);
-    }
-    console.log(data);
+  console.log("onMessageArrived:" + message.payloadString);
+  let data = JSON.parse(message.payloadString);
+  if (control) {
+    toggleSwitch.checked = false;
+    led1_off();
+  } else if (control) {
+    toggleSwitch.checked = true;
+    led1_on();
+  }
+  console.log(data);
 }
 
-function led_on(toggleSwitch, ledON, ledOFF, toggleText) {
+function led1_on(toggleSwitch, led1_on, led1_off, toggleText) {
   toggleSwitch.checked = true;
   toggleText.textContent = "ON";
   lampOFF.style.display = "none";
@@ -61,7 +61,7 @@ function led_on(toggleSwitch, ledON, ledOFF, toggleText) {
   client.send(message);
 }
 
-function led_off(toggleSwitch, ledON, ledOFF, toggleText) {
+function led1_off(toggleSwitch, led1_on, led1_off, toggleText) {
   toggleSwitch.checked = false;
   toggleText.textContent = "OFF";
   lampON.style.display = "none";
@@ -72,28 +72,16 @@ function led_off(toggleSwitch, ledON, ledOFF, toggleText) {
 }
 
 toggleSwitch1.addEventListener("change", function () {
-    if (toggleSwitch1.checked) {
-      led_on(toggleSwitch1, led1ON, led1OFF, toggleText1);
-    } else {
-      led_off(toggleSwitch1, led1ON, led1OFF, toggleText1);
-    }
-  });
+  led1_on(toggleSwitch1, led1_on, led1_0ff, toggleText1);
+});
 
-  toggleSwitch2.addEventListener("change", function () {
-    if (toggleSwitch2.checked) {
-      led_on(toggleSwitch2, led2ON, led2OFF, toggleText2);
-    } else {
-      led_off(toggleSwitch2, led2ON, led2OFF, toggleText2);
-    }
-  });
+toggleSwitch2.addEventListener("change", function () {
+ led2_on(toggleSwitch2, led2_on, led2_off, toggleText2);
+});
 
-  toggleSwitch3.addEventListener("change", function () {
-    if (toggleSwitch3.checked) {
-      led_on(toggleSwitch3, led3ON, led3OFF, toggleText3);
-    } else {
-      led_off(toggleSwitch3, led3ON, led3OFF, toggleText3);
-    }
-  });
+toggleSwitch3.addEventListener("change", function () {
+  led3_on(toggleSwitch3, led3_on, led3_off, toggleText3);
+});
 
 const toggleAuto = document.getElementById("toggleAuto");
 const autoText = document.getElementById("autoText");
