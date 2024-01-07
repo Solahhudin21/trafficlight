@@ -28,7 +28,7 @@ client.connect({ onSuccess: onConnect });
 
 function onConnect() {
   console.log("onConnect");
-  client.subscribe("traffic/web-2");
+  client.subscribe("traffic/raspico-2");
 }
 
 function onConnectionLost(responseObject) {
