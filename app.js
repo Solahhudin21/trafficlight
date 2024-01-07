@@ -1,17 +1,17 @@
 const toggleSwitch1 = document.getElementById("toggleSwitch1");
 const toggleText1 = document.getElementById("toggleText1");
-const led1ON = document.getElementById("led1_on");
-const led1OFF = document.getElementById("led1_off");
+const lampON1 = document.getElementById("lamp_on1");
+const lampOFF1 = document.getElementById("lamp_off1");
 
 const toggleSwitch2 = document.getElementById("toggleSwitch2");
 const toggleText2 = document.getElementById("toggleText2");
-const led2ON = document.getElementById("led2_on");
-const led2OFF = document.getElementById("led2_off");
+const lampON2 = document.getElementById("lamp_on2");
+const lampOFF2 = document.getElementById("lamp_off2");
 
 const toggleSwitch3 = document.getElementById("toggleSwitch3");
 const toggleText3 = document.getElementById("toggleText3");
-const led3ON = document.getElementById("led3_on");
-const led3OFF = document.getElementById("led3_off");
+const lampON3 = document.getElementById("lamp_on3");
+const lampOFF3 = document.getElementById("lamp_off3");
 
 function generateRandomNumber(length) {
   return Math.floor(
@@ -43,44 +43,44 @@ function onMessageArrived(message) {
   let data = JSON.parse(message.payloadString);
   if (control) {
     toggleSwitch.checked = false;
-    led1_off();
+    lamp_off();
   } else if (control) {
     toggleSwitch.checked = true;
-    led1_on();
+    lamp_on();
   }
   console.log(data);
 }
 
-function led1_on(toggleSwitch, led1ON, led1OFF, toggleText) {
+function lamp_on(toggleSwitch, lampON, lampOFF, toggleText) {
   toggleSwitch.checked = true;
   toggleText.textContent = "ON";
   lampOFF.style.display = "none";
   lampON.style.display = "inline-block";
   message = new Paho.MQTT.Message("0");
-  message.destinationName = "traffic/web-2"; // Assuming this topic is correct
+  message.destinationName = "traffic/raspico-2"; // Assuming this topic is correct
   client.send(message);
 }
 
-function led1_off(toggleSwitch, led1ON, led1OFF, toggleText) {
+function lamp_off(toggleSwitch, lampON, lampOFF, toggleText) {
   toggleSwitch.checked = false;
   toggleText.textContent = "OFF";
   lampON.style.display = "none";
   lampOFF.style.display = "inline-block";
   message = new Paho.MQTT.Message("1");
-  message.destinationName = "traffic/web-2"; // Assuming this topic is correct
+  message.destinationName = "traffic/raspico-2"; // Assuming this topic is correct
   client.send(message);
 }
 
 toggleSwitch1.addEventListener("change", function () {
-  led1_on(toggleSwitch1, led1_on, led1_0ff, toggleText1);
+  lamp_on(toggleSwitch1, lamp_on1, lamp_0ff1, toggleText1);
 });
 
 toggleSwitch2.addEventListener("change", function () {
- led2_on(toggleSwitch2, led2_on, led2_off, toggleText2);
+  lamp_on(toggleSwitch2, lamp_on2, lamp_off2, toggleText2);
 });
 
 toggleSwitch3.addEventListener("change", function () {
-  led3_on(toggleSwitch3, led3_on, led3_off, toggleText3);
+  lamp_on(toggleSwitch3, lamp_on3, lamp_off3, toggleText3);
 });
 
 const toggleAuto = document.getElementById("toggleAuto");
