@@ -41,9 +41,9 @@
               <img id="led1_off" src="img/lamp-off.png" width="150" alt="" />
             </div>
             <div class="toggle-container">
-              <label class="switch">
+              <label class="switch-2">
                 <input type="checkbox" id="toggleSwitch1" disabled />
-                <span class="slider"></span>
+                <span class="slider-2"></span>
               </label>
               <p id="toggleText1">OFF</p>
             </div>
@@ -60,9 +60,9 @@
               <img id="led2_off" src="img/lamp-off.png" width="150" alt="" />
             </div>
             <div class="toggle-container">
-              <label class="switch">
+              <label class="switch-2">
                 <input type="checkbox" id="toggleSwitch2" disabled />
-                <span class="slider"></span>
+                <span class="slider-2"></span>
               </label>
               <p id="toggleText2">OFF</p>
             </div>
@@ -79,9 +79,9 @@
               <img id="led3_off" src="img/lamp-off.png" width="150" alt="" />
             </div>
             <div class="toggle-container">
-              <label class="switch">
+              <label class="switch-2">
                 <input type="checkbox" id="toggleSwitch3" disabled />
-                <span class="slider"></span>
+                <span class="slider-2"></span>
               </label>
               <p id="toggleText3">OFF</p>
             </div>
@@ -92,5 +92,197 @@
 
     <script src="mqttws31.js"></script>
     <script src="app.js"></script>
-  </body>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Lamp Control</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="myheader">
+        <div class="logo">
+          <img src="img/favicon.png" height="25" alt="" />
+          <div>Lamp Control</div>
+        </div>
+        <div>
+          <div class="toggle-container-2">
+            <p id="manualText">Manual</p>
+            <label class="switch-2">
+              <input type="checkbox" id="toggleAuto" checked />
+              <span class="slider-2"></span>
+            </label>
+            <p id="autoText">Auto</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="myapp">
+        <div class="sensor">
+          <h2>Lamp Control</h2>
+          <div class="data-lampu">
+            <div>
+              <img
+                id="led1_on"
+                src="img/lamp-on.png"
+                style="display: none"
+                width="150"
+                alt=""
+              />
+              <img id="led1_off" src="img/lamp-off.png" width="150" alt="" />
+            </div>
+            <div class="toggle-container">
+              <label class="switch-2">
+                <input type="checkbox" id="toggleSwitch1" disabled />
+                <span class="slider-2"></span>
+              </label>
+              <p id="toggleText1">OFF</p>
+            </div>
+          </div>
+          <div class="data-lampu">
+            <div>
+              <img
+                id="led2_on"
+                src="img/lamp-on.png"
+                style="display: none"
+                width="150"
+                alt=""
+              />
+              <img id="led2_off" src="img/lamp-off.png" width="150" alt="" />
+            </div>
+            <div class="toggle-container">
+              <label class="switch-2">
+                <input type="checkbox" id="toggleSwitch2" disabled />
+                <span class="slider-2"></span>
+              </label>
+              <p id="toggleText2">OFF</p>
+            </div>
+          </div>
+          <div class="data-lampu">
+            <div>
+              <img
+                id="led3_on"
+                src="img/lamp-on.png"
+                style="display: none"
+                width="150"
+                alt=""
+              />
+              <img id="led3_off" src="img/lamp-off.png" width="150" alt="" />
+            </div>
+            <div class="toggle-container">
+              <label class="switch-2">
+                <input type="checkbox" id="toggleSwitch3" disabled />
+                <span class="slider-2"></span>
+              </label>
+              <p id="toggleText3">OFF</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="mqttws31.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Lamp Control</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="myheader">
+        <div class="logo">
+          <img src="img/favicon.png" height="25" alt="" />
+          <div>Lamp Control</div>
+        </div>
+        <div>
+          <div class="toggle-container-2">
+            <p id="manualText">Manual</p>
+            <label class="switch-2">
+              <input type="checkbox" id="toggleAuto" checked />
+              <span class="slider-2"></span>
+            </label>
+            <p id="autoText">Auto</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="myapp">
+        <div class="sensor">
+          <h2>Lamp Control</h2>
+          <div class="data-lampu">
+            <div>
+              <img
+                id="led1_on"
+                src="img/lamp-on.png"
+                style="display: none"
+                width="150"
+                alt=""
+              />
+              <img id="led1_off" src="img/lamp-off.png" width="150" alt="" />
+            </div>
+            <div class="toggle-container">
+              <label class="switch-2">
+                <input type="checkbox" id="toggleSwitch1" disabled />
+                <span class="slider-2"></span>
+              </label>
+              <p id="toggleText1">OFF</p>
+            </div>
+          </div>
+          <div class="data-lampu">
+            <div>
+              <img
+                id="led2_on"
+                src="img/lamp-on.png"
+                style="display: none"
+                width="150"
+                alt=""
+              />
+              <img id="led2_off" src="img/lamp-off.png" width="150" alt="" />
+            </div>
+            <div class="toggle-container">
+              <label class="switch-2">
+                <input type="checkbox" id="toggleSwitch2" disabled />
+                <span class="slider-2"></span>
+              </label>
+              <p id="toggleText2">OFF</p>
+            </div>
+          </div>
+          <div class="data-lampu">
+            <div>
+              <img
+                id="led3_on"
+                src="img/lamp-on.png"
+                style="display: none"
+                width="150"
+                alt=""
+              />
+              <img id="led3_off" src="img/lamp-off.png" width="150" alt="" />
+            </div>
+            <div class="toggle-container">
+              <label class="switch-2">
+                <input type="checkbox" id="toggleSwitch3" disabled />
+                <span class="slider-2"></span>
+              </label>
+              <p id="toggleText3">OFF</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="mqttws31.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
