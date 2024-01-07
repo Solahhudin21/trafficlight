@@ -39,19 +39,19 @@ function onConnectionLost(responseObject) {
 }
 
 function onMessageArrived(message) {
-    console.log("onMessageArrived:" + message.payloadString);
-    let data = JSON.parse(message.payloadString);
-    if (control) {
-      toggleSwitch1.checked = false;
-      led_off(toggleSwitch1, led1ON, led1OFF, toggleText1);
-    } else {
-      toggleSwitch1.checked = true;
-      led_on(toggleSwitch1, led1ON, led1OFF, toggleText1);
-    }
-    console.log(data);
+  console.log("onMessageArrived:" + message.payloadString);
+  let data = JSON.parse(message.payloadString);
+  if (control) {
+    toggleSwitch.checked = false;
+    led1_off();
+  } else if (control) {
+    toggleSwitch.checked = true;
+    led1_on();
+  }
+  console.log(data);
 }
 
-function led_on(toggleSwitch, ledON, ledOFF, toggleText) {
+function led1_on(toggleSwitch, led1ON, led1OFF, toggleText) {
   toggleSwitch.checked = true;
   toggleText.textContent = "ON";
   lampOFF.style.display = "none";
@@ -61,7 +61,7 @@ function led_on(toggleSwitch, ledON, ledOFF, toggleText) {
   client.send(message);
 }
 
-function led_off(toggleSwitch, ledON, ledOFF, toggleText) {
+function led1_off(toggleSwitch, led1ON, led1OFF, toggleText) {
   toggleSwitch.checked = false;
   toggleText.textContent = "OFF";
   lampON.style.display = "none";
@@ -72,28 +72,16 @@ function led_off(toggleSwitch, ledON, ledOFF, toggleText) {
 }
 
 toggleSwitch1.addEventListener("change", function () {
-    if (toggleSwitch1.checked) {
-      led_on(toggleSwitch1, led1ON, led1OFF, toggleText1);
-    } else {
-      led_off(toggleSwitch1, led1ON, led1OFF, toggleText1);
-    }
-  });
+  led1_on(toggleSwitch1, led1_on, led1_0ff, toggleText1);
+});
 
-  toggleSwitch2.addEventListener("change", function () {
-    if (toggleSwitch2.checked) {
-      led_on(toggleSwitch2, led2ON, led2OFF, toggleText2);
-    } else {
-      led_off(toggleSwitch2, led2ON, led2OFF, toggleText2);
-    }
-  });
+toggleSwitch2.addEventListener("change", function () {
+ led2_on(toggleSwitch2, led2_on, led2_off, toggleText2);
+});
 
-  toggleSwitch3.addEventListener("change", function () {
-    if (toggleSwitch3.checked) {
-      led_on(toggleSwitch3, led3ON, led3OFF, toggleText3);
-    } else {
-      led_off(toggleSwitch3, led3ON, led3OFF, toggleText3);
-    }
-  });
+toggleSwitch3.addEventListener("change", function () {
+  led3_on(toggleSwitch3, led3_on, led3_off, toggleText3);
+});
 
 const toggleAuto = document.getElementById("toggleAuto");
 const autoText = document.getElementById("autoText");
